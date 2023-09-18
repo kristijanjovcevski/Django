@@ -1,0 +1,637 @@
+
+{% extends 'index.html' %}
+
+{% block title %} - Достава{% endblock %}
+
+{% block content %}
+
+<style>
+    p{
+        max-width: 250px;
+    }
+    hr{
+        height: 10px;
+        background: white;
+    }
+</style>
+
+<div class="container">
+
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <script>
+        $(document).ready(function () {
+
+            var rectangle = $(".rectangle")
+
+            rectangle.hover(
+                function () {
+                     if ($(this).css('background-color') !== 'rgb(255, 193, 7)') {
+                        $(this).css('outline', '2px solid red');
+                    }
+                },
+                function () {
+                     $(this).css('outline', 'none');
+                }
+            );
+              function enableLink() {
+            const rectangleDivs = document.querySelectorAll('.rectangle');
+            const link = document.querySelector('.unclickable-link');
+
+            for (let div of rectangleDivs) {
+                if (div.style.backgroundColor === 'rgb(255, 193, 7)') {
+                    link.style.pointerEvents = 'auto';
+                    link.style.opacity = '1';
+                    return;
+                }
+            }
+            link.style.pointerEvents = 'none';
+            link.style.opacity = '0.5';
+        }
+
+            rectangle.click(function () {
+
+                rectangle.css('background-color', '#f8f9fa');
+                $(this).css('background-color', '#ffc107');
+                enableLink()
+
+            });
+
+            enableLink()
+        });
+        </script>
+
+    <h3 class="mb-4 mt-4">Термин за достава</h3><br><br>
+
+
+    <p style="font-size: 20px" class="text-start text-light bg-dark mb-1 ms-5 ps-2">Понеделник :</p>
+    <div class="row justify-content-center">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 9:00 - 10:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">70 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">10:00 - 11:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">80 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 11:00 - 12:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">90 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 12:00 - 13:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">100 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+     <div class="row justify-content-center ">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 13:00 - 14:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">14:00 - 15:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 15:00 - 16:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 16:00 - 17:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 17:00 - 18:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">18:00 - 19:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 19:00 - 20:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 20:00 - 21:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+    <hr>
+
+    <p style="font-size: 20px" class="text-start text-light bg-dark mb-1 ms-5 mt-5 ps-2">Вторник :</p>
+
+
+      <div class="row justify-content-center">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 9:00 - 10:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">70 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">10:00 - 11:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">80 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 11:00 - 12:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">90 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 12:00 - 13:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">100 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+     <div class="row justify-content-center ">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 13:00 - 14:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">14:00 - 15:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 15:00 - 16:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 16:00 - 17:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 17:00 - 18:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">18:00 - 19:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 19:00 - 20:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 20:00 - 21:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+
+
+    <hr>
+
+    <p style="font-size: 20px" class="text-start text-light bg-dark mb-1 ms-5 mt-5 ps-2">Среда :</p>
+
+
+
+      <div class="row justify-content-center">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 9:00 - 10:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">70 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">10:00 - 11:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">80 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 11:00 - 12:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">90 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 12:00 - 13:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">100 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+     <div class="row justify-content-center ">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 13:00 - 14:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">14:00 - 15:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 15:00 - 16:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 16:00 - 17:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 17:00 - 18:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">18:00 - 19:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 19:00 - 20:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 20:00 - 21:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+    <hr>
+
+    <p style="font-size: 20px" class="text-start text-light bg-dark mb-1 ms-5 mt-5 ps-2">Четврток :</p>
+
+
+
+      <div class="row justify-content-center">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 9:00 - 10:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">70 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">10:00 - 11:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">80 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 11:00 - 12:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">90 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 12:00 - 13:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">100 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+     <div class="row justify-content-center ">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 13:00 - 14:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">14:00 - 15:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 15:00 - 16:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 16:00 - 17:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 17:00 - 18:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">18:00 - 19:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 19:00 - 20:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 20:00 - 21:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+
+     <hr>
+
+     <p style="font-size: 20px" class="text-start text-light bg-dark mb-1 ms-5 mt-5 ps-2">Петок :</p>
+
+
+    <div class="row justify-content-center">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 9:00 - 10:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">70 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">10:00 - 11:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">80 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 11:00 - 12:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">90 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 12:00 - 13:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">100 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+     <div class="row justify-content-center ">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 13:00 - 14:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">14:00 - 15:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 15:00 - 16:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">110 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 16:00 - 17:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+        <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 17:00 - 18:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+         <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px">18:00 - 19:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 19:00 - 20:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+
+
+            <div class="col-2 d-flex justify-content-center bg-primary-subtle">
+            <div class="rectangle " style="background-color: #f8f9fa">
+                <span style="font-size: 18px"> 20:00 - 21:00</span>
+                <p class="mt-2" style="font-weight: bold; font-size: 18px">120 ден.</p>
+            </div>
+        </div>
+            <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+          <div class="col-2 flex-grow-1 bg-primary-subtle"></div>
+
+    </div>
+
+    <a href="{% url 'payment' %}" class=" unclickable-link mt-1 mb-4 text-black text-decoration-none btn btn-success d-flex justify-content-center w-50  mx-auto mb-6">
+        Продолжи со наплата
+    </a>
+
+</div>
+
+
+{% endblock %}
+
+
+

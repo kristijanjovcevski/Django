@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <base href="/" />
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bootstrap/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/icons-main/icons-main/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../static/myfirst.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <title>Foodo {% block title %}{% endblock %}</title>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand navbar-light bg-light position-sticky top-0">
+    <div class="container ms-4">
+        <a href="{% url 'index' %}">
+        <img src="../static/media/Foodo.png" style="max-width:160px;max-height: 75px" class="ms-2"
+             alt="bread icon">
+            </a>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item " style="white-space: nowrap; font-weight: bold"><a href="{% url 'guide' %}" class="nav-link">Прирачник
+                за нарачка</a></li>
+            {% if user.is_authenticated %}
+            <li class="nav-item text-primary"><a href="{% url 'profile' %}" class="nav-link" style="font-weight: bold">Профил</a></li>
+            <li class="nav-item text-primary"><a href="{% url 'logout' %}" class="nav-link" style="font-weight: bold">Одјава</a></li>
+            {% else %}
+            <li class="nav-item text-primary"><a href="{% url 'login' %}" class="nav-link" style="font-weight: bold">Најава</a></li>
+            <li class="nav-item text-primary"><a href="{% url 'register' %}" class="nav-link" style="font-weight: bold">Регистрација</a></li>
+            {% endif %}
+            <li class="nav-item " style="font-size:40px;"><a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a></li>
+            <li class="nav-item" style="font-size:40px;"><a href="https://twitter.com"><i class="bi bi-twitter"></i></a></li>
+
+            <li class="nav-item" style="font-size:40px;">
+    <a id="cartIconToggle" style="text-decoration: none" class="position-relative">
+        <i class="bi bi-cart"></i>
+        <h6 class="position-relative">
+            <span class="badge position-absolute translate-middle-y rounded-pill" style="background-color: orange">0</span>
+        </h6>
+    </a>
+</li>
+        </ul>
+
+    </div>
+</div>
+
+<section class="text-center bg-secondary">
+
+    {% block content %}
+    <div class="container">
+
+        {% for product in products %}
+            {% if forloop.counter0|divisibleby:4 and not forloop.first %}
+                </div>
+            {% endif %}
+        {% if forloop.counter0|divisibleby:4 %}
+        <div class="row pb-4">
+            {% endif %}
+
+            <div class="col-3 border">
+                 <img class="img-fluid mt-2" src="{{MEDIA_URL}}{{product.image.url}}" alt="bread.png"
+                     style="max-width: 300px; max-height: 200px">
+                <div class="bg-light mt-3 mb-2" >{{ product.price }} ден.</div>
+                <p>{{product.product_name}} {{product.product_weight}} {{product.weight_unit}}</p>
+                <button class="btn btn-success add">Додади +</button>
+
+                 <div class="item">
+                    <button class="btn btn-success increment" style="margin-bottom: 0"><i class="bi bi-plus"></i></button>
+                     <span class="count">0</span>
+                    <button class="btn btn-danger decrement "><i class="bi bi-dash"></i></button>
+                </div>
+
+            </div>
+             {% if forloop.last %}
+        </div>
+              {% endif %}
+        {% endfor %}
+
+
+      <div class="vertical-div" id="cartDiv">
+        <div class="vertical-div-content">
+            <!-- Your content here -->
+            <div class="bg-primary mb-5 d-flex pt-4 pb-4 justify-content-between align-items-center" >
+                <div class="btn btn-close text-bg-danger p-2 ms-1" id="closeCartDivButton" ></div>
+                <h4 >Вашата нарачка</h4>
+                <div></div>
+            </div>
+
+            <ul id="addedProductsList" ></ul>
+
+        </div>
+         <div id="totalSum" class="mb-1  bottom-50  w-100 text-center"> </div>
+           {% if user.is_authenticated %}
+          <div  id="continueDiv" class="bg-primary mt-4 d-flex pt-4 pb-4 justify-content-center">
+              <a href="{% url 'proceed' %}" class="text-black text-decoration-none" data-is-authenticated="{{ user.is_authenticated }}" > Продолжете </a>
+          </div>
+            {% endif %}
+
+
+        </div>
+    {% endblock %}
+
+</section>
+
+<footer class="p-3">
+    <div class="container d-inline-block">
+        <div class="row pb-5">
+            <div class="col-4">
+            <ul>
+                <li>За нас</li>
+                <li>Политика за колачиња</li>
+                <li>Општи услови на користење</li>
+            </ul>
+            </div>
+            <div class="col-4">
+            <ul>
+                <li>Предлози и грешки</li>
+                <li>Контакт</li>
+                <li>Достава</li>
+            </ul>
+            </div>
+            <div class="col-4">
+            <span style="white-space: nowrap;">Поддржани се следниве електронски платежни средства:</span>
+                <div class="mt-1 flex flex-row flex-wrap items-center justify-center space-x-2 lg:mt-auto">
+                    <img class="pe-2" src="../static/media/visa.svg" alt="visa" style="margin-top: 10px">
+                    <img class="pe-2" src="../static/media/download.png" alt="visa electron" style="max-height: 40px; max-width: 65px; margin-top: 10px">
+                    <img class="pe-2" src="../static/media/Maestro_2016.svg.png" alt="visa electron" style="max-height: 40px; max-width: 65px; margin-top: 10px">
+                    <img class="pe-2" src="../static/media/330px-Debit_Mastercard_logo.svg.png" alt="visa electron" style="max-height: 40px; max-width: 65px; margin-top: 10px">
+
+                </div>
+            </div>
+
+            </div>
+        <div class="row text-center">
+                <div class="col">
+                    Copyright @ 2023
+                </div>
+        </div>
+    </div>
+
+</footer>
+
+<script src="../static/bootstrap/bootstrap/js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="../static/myfirst.js"  data-is-authenticated="{{ is_authenticated }}"></script>
+
+</body>
+</html>

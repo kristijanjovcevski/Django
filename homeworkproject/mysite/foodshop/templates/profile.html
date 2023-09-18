@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+
+{% block title %} - Вашиот профил{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+
+</style>
+<div class="container">
+
+  <h1 class="mb-5">Вашиот профил</h1>
+
+  <div class="row d-flex justify-content-center mb-5">
+  <div class="col-4 text-end"><strong>Корисничко име:</strong> </div>
+    <div class="col-4 text-start">{{ user.username }}</div>
+    </div>
+
+  <div class="row d-flex justify-content-center mb-5">
+    <div class="col-4 text-end"><strong>Име:</strong></div>
+     <div class="col-4 text-start">{{ user.first_name }}</div>
+  </div>
+
+    <div class="row d-flex justify-content-center mb-5">
+      <div class="col-4 text-end"><strong>Презиме:</strong></div>
+      <div class="col-4 text-start">{{ user.last_name  }}</div>
+    </div>
+
+     <div class="row d-flex justify-content-center mb-5">
+      <div class="col-4 text-end"><strong>Електронска пошта:</strong></div>
+      <div class="col-4 text-start">{{ user.email }}</div>
+    </div>
+
+
+    <div style="height: 200px"></div>
+
+</div>
+
+{% endblock %}

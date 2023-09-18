@@ -1,0 +1,59 @@
+{% extends 'index.html' %} <!-- This should be the first line -->
+
+
+{% block title %} - Регистрација {% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+
+<p>There was en error with your form</p>
+
+{% endif %}
+
+
+
+<h1>Register</h1>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!--Register-->
+<div class="container py-5">
+
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+	<form method="POST" action="{% url 'register' %}">
+	{% csrf_token %}
+
+
+			  <label class="form-label">{{ form.username.label }}</label>
+
+			{{ form.username }} <br/><br/>
+
+		  <label class="form-label">{{ form.first_name.label }}</label>
+
+			{{ form.first_name }} <br/> <br/>
+
+		  <label class="form-label">{{ form.last_name.label }}</label>
+
+		{{ form.last_name }} <br/> <br/>
+
+		  <label class="form-label">{{ form.email.label }}</label>
+
+		{{ form.email }} <br/><br/>
+
+		 <label class="form-label">{{ form.password1.label }}</label>
+
+		 {{ form.password1 }} <br/><br/>
+
+		<label class="form-label">{{ form.password2.label }}</label>
+		{{ form.password2 }} <br/>
+
+		<br>
+	<input type="submit" value="Register" class="btn btn-primary" />
+</form>
+	<p class="text-center">If you already have an account, <a href="{% url 'login' %}">login</a> instead.</p>
+</div>
+{% endblock %}

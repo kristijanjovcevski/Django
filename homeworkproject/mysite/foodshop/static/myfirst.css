@@ -1,0 +1,95 @@
+ .nav-link {
+            font-size: 18px;
+            color: whitesmoke;
+        }
+
+        .navbar-nav li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-item:not(:last-child) {
+            padding-right: 35px;
+        }
+
+
+
+        .btn-success {
+            margin-bottom: 15px;
+        }
+
+        footer > ul {
+            display: inline-block;
+        }
+
+        ul:nth-last-of-type(2) {
+            padding-right: 60px;
+        }
+        .badge{
+            top: -38px;
+            right: -20px;
+        }
+        .vertical-div {
+             display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 400px; /* Maximum width */
+            background-color: #f0f0f0;
+
+            /*padding: 20px;*/
+            overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+        }
+
+
+        .vertical-div-content {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+          .show-vertical-div {
+        display: block; /* Force the div to be displayed */
+    }
+
+        #addedProductsList{
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 20px;
+            min-height: 150px;
+
+        }
+        #continueDiv{
+            display: none;
+        }
+        /*od tuka*/
+        html, body {
+    height: 100%;
+}
+        body {
+    display: flex;
+    flex-direction: column;
+}
+        .container {
+    flex: 1;
+}
+        footer {
+    margin-top: auto;
+}
+ .rectangle {
+    width: 140px;
+    height: 70px;
+    background-color: #ccc;
+    border: 1px solid #999;
+
+}
+ .rectangle:hover{
+     background: red;
+ }
+
+
+.col-2{
+    padding: 10px 8px;
+    max-width: 150px;
+}

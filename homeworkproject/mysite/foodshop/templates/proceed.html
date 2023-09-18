@@ -1,0 +1,442 @@
+{% extends 'index.html' %}
+
+{% block title %} - Адреса{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+<style>
+     .nav-link {
+            font-size: 18px;
+            color: whitesmoke;
+        }
+
+        .navbar-nav li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-item:not(:last-child) {
+            padding-right: 35px;
+        }
+
+
+
+        .btn-success {
+            margin-bottom: 15px;
+        }
+
+        footer > ul {
+            display: inline-block;
+        }
+
+        ul:nth-last-of-type(2) {
+            padding-right: 60px;
+        }
+        .badge{
+            top: -38px;
+            right: -20px;
+        }
+        .vertical-div {
+             display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 400px; /* Maximum width */
+            background-color: #f0f0f0;
+
+            /*padding: 20px;*/
+            overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+        }
+
+
+        .vertical-div-content {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+          .show-vertical-div {
+        display: block; /* Force the div to be displayed */
+    }
+
+    /* Add this rule to hide the div */
+        /*.show-vertical-div.hide {
+            display: none;
+        }*/
+        #addedProductsList{
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 20px;
+            min-height: 150px;
+
+        }
+        #continueDiv{
+            display: none;
+        }
+</style>
+
+
+ <div class="container">
+            <h2>Додадете нова адреса</h2>
+
+
+              {% if user_address %}
+                <div class="row float-end w-25">
+                 <div class="col-md-6 ">
+        <p>Име и презиме: {{ user_address.name }}</p>
+        <p>Адреса за достава: {{ user_address.address }}</p>
+        <p>Мобилен број: {{ user_address.mobile }}</p>
+        <p>Град: {{ user_address.city }}</p>
+        <p>Општина: {{ user_address.municipality }}</p>
+                 </div>
+                    </div>
+             {% endif %}
+
+
+
+             <div class="row">
+                <div class="col-md-6">
+                    <label for="name1" class="form-label">Име и презиме</label>
+                    <input type="text" id="name1" class="form-control error-msg" required>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="name2" class="form-label">Адреса за достава</label>
+                    <input type="text" id="name2" class="form-control error-msg" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="name3" class="form-label">Мобилен број</label>
+                        <input type="text" id="name3" class="form-control error-msg" required>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                    <label  class="form-label">Град</label>
+                    <select class="form-select" id="citySelect" aria-label="Изберете град">
+                        <option>Скопје</option>
+                    </select>
+
+                    </div>
+            </div>
+
+                 <div class="row mb-4">
+                    <div class="col-md-6">
+                    <label class="form-label">Општина</label>
+                    <select class="form-select" id="municipalitySelect" aria-label="Изберете општина">
+                        <option>Аеродром</option>
+                        <option>Гази баба</option>
+                        <option>Бутел</option>
+                        <option>Ѓорче Петров</option>
+                        <option>Карпош</option>
+                        <option>Кисела Вода</option>
+                        <option>Сарај</option>
+                        <option>Центар</option>
+                        <option>Чаир</option>
+                        <option>Шуто Оризари</option>
+                    </select>
+
+                    </div>
+            </div>
+
+                 <div class="row mb-5">
+                     <div class="col-md-6 text-start">
+                        <button id="save" style="max-width: 250px" class="btn btn-warning">Зачувај ја адресата</button>
+                         <div id="displayInfoDiv">
+
+                        </div>
+                     </div>
+                         </div>
+
+
+
+
+            <a href="{% url 'delivery' %}" class="text-black text-decoration-none btn btn-success d-flex justify-content-center w-50  mx-auto mb-5"> Одбери термин за достава </a>
+
+        </div>
+
+
+
+
+{% endblock %}
+
+
+<!--
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+     <base href="/" />
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <link href="../static/bootstrap/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/icons-main/icons-main/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../static/myfirst.css" rel="stylesheet">
+   &lt;!&ndash; <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">&ndash;&gt;
+
+    <title>Title</title>
+   <style>
+        .nav-link {
+            font-size: 18px;
+            color: whitesmoke;
+        }
+
+        .navbar-nav li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-item:not(:last-child) {
+            padding-right: 35px;
+        }
+
+
+
+        .btn-success {
+            margin-bottom: 15px;
+        }
+
+        footer > ul {
+            display: inline-block;
+        }
+
+        ul:nth-last-of-type(2) {
+            padding-right: 60px;
+        }
+        .badge{
+            top: -38px;
+            right: -20px;
+        }
+        .vertical-div {
+             display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 400px; /* Maximum width */
+            background-color: #f0f0f0;
+
+            /*padding: 20px;*/
+            overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+        }
+
+
+        .vertical-div-content {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+          .show-vertical-div {
+        display: block; /* Force the div to be displayed */
+    }
+
+    /* Add this rule to hide the div */
+        /*.show-vertical-div.hide {
+            display: none;
+        }*/
+        #addedProductsList{
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 20px;
+            min-height: 150px;
+
+        }
+        #continueDiv{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar navbar-expand navbar-light bg-light position-sticky top-0">
+    <div class="container  ms-4">
+        <img src="../static/media/bread_white_icon.png" style="max-width:160px;max-height: 75px" class="ms-2"
+             alt="bread icon">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item " style="white-space: nowrap; font-weight: bold"><a href="#" class="nav-link">Прирачник
+                за нарачка</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" style="font-weight: bold">Контакт</a></li>
+             {% if user.is_authenticated %}
+            <li class="nav-item "><a href="{% url 'logout' %}" class="nav-link" style="font-weight: bold">Одјава</a></li>
+            {% else %}
+            <li class="nav-item"><a href="#" class="nav-link" style="font-weight: bold">Најава</a></li>
+            <li class="nav-item me-5"><a href="#" class="nav-link" style="font-weight: bold">Регистрација</a></li>
+              {% endif %}
+            <li class="nav-item" style="font-size:40px;"><a href="#"><i class="bi bi-facebook"></i></a></li>
+            <li class="nav-item" style="font-size:40px;"><a href="#"><i class="bi bi-twitter"></i></a></li>
+
+            <li class="nav-item" style="font-size:40px;">
+    <a href="#"  id="cartIconToggle" style="text-decoration: none" class="position-relative">
+        <i class="bi bi-cart"></i>
+        <h6 class="position-relative">
+            <span class="badge position-absolute translate-middle-y rounded-pill" style="background-color: orange">0</span>
+        </h6>
+    </a>
+</li>
+        </ul>
+
+    </div>
+</div>
+    </header>
+
+    <section class="bg-secondary">
+        <div class="container">
+            <h2>Додадете нова адреса</h2>
+
+
+              {% if user_address %}
+                <div class="row float-end w-25">
+                 <div class="col-md-6 ">
+        <p>Име и презиме: {{ user_address.name }}</p>
+        <p>Адреса за достава: {{ user_address.address }}</p>
+        <p>Мобилен број: {{ user_address.mobile }}</p>
+        <p>Град: {{ user_address.city }}</p>
+        <p>Општина: {{ user_address.municipality }}</p>
+                 </div>
+                    </div>
+             {% endif %}
+              <div id="displayInfoDiv">
+
+            </div>
+
+
+             <div class="row">
+                <div class="col-md-6">
+                    <label for="name1" class="form-label">Име и презиме</label>
+                    <input type="text" id="name1" class="form-control" required>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="name2" class="form-label">Адреса за достава</label>
+                    <input type="text" id="name2" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="name3" class="form-label">Мобилен број</label>
+                        <input type="text" id="name3" class="form-control" required>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                    <label  class="form-label">Град</label>
+                    <select class="form-select" id="citySelect" aria-label="Изберете град">
+                        <option>Скопје</option>
+                    </select>
+
+                    </div>
+            </div>
+
+                 <div class="row">
+                    <div class="col-md-6">
+                    <label class="form-label">Општина</label>
+                    <select class="form-select" id="municipalitySelect" aria-label="Изберете општина">
+                        <option>Аеродром</option>
+                        <option>Гази баба</option>
+                        <option>Бутел</option>
+                        <option>Ѓорче Петров</option>
+                        <option>Карпош</option>
+                        <option>Кисела Вода</option>
+                        <option>Сарај</option>
+                        <option>Центар</option>
+                        <option>Чаир</option>
+                        <option>Шуто Оризари</option>
+                    </select>
+
+                    </div>
+            </div>
+            <button id="save">Зачувај ја адресата</button>
+
+            <a href="{% url 'delivery' %}" class="text-black text-decoration-none btn btn-success d-flex justify-content-center w-50  mx-auto mb-6"  > Одбери термин за достава </a>
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+    <footer class="p-3">
+    <div class="container d-inline-block">
+        <div class="row pb-5">
+            <div class="col-4">
+            <ul>
+                <li>За нас</li>
+                <li>Политика за колачиња</li>
+                <li>Општи услови на користење</li>
+            </ul>
+            </div>
+            <div class="col-4">
+            <ul>
+                <li>Предлози и грешки</li>
+                <li>Контакт</li>
+                <li>Достава</li>
+            </ul>
+            </div>
+            <div class="col-4">
+            <span style="white-space: nowrap;">Поддржани се следниве електронски платежни средства:</span>
+                <div class="mt-1 flex flex-row flex-wrap items-center justify-center space-x-2 lg:mt-auto">
+                    <img class="pe-2" src="../static/media/visa.svg" alt="visa" style="margin-top: 10px">
+                    <img class="pe-2" src="../static/media/download.png" alt="visa electron" style="max-height: 40px; max-width: 65px; margin-top: 10px">
+                    <img class="pe-2" src="../static/media/Maestro_2016.svg.png" alt="visa electron" style="max-height: 40px; max-width: 65px; margin-top: 10px">
+                    <img class="pe-2" src="../static/media/330px-Debit_Mastercard_logo.svg.png" alt="visa electron" style="max-height: 40px; max-width: 65px; margin-top: 10px">
+
+                </div>
+            </div>
+
+            </div>
+        <div class="row text-center">
+                <div class="col">
+                    Copyright @ 2023
+                </div>
+        </div>
+    </div>
+
+
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/myfirst.js" > window.CSRF_TOKEN = "{{ csrf_token }}";</script>
+
+</body>
+</html>-->

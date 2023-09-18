@@ -1,0 +1,20 @@
+
+{% extends 'index.html' %} <!-- This should be the first line -->
+
+
+{% block content %}
+    <h1>Login</h1>
+    <div>
+        <form method="POST" action="{% url 'login' %}">
+	{% csrf_token %}
+
+            {{ form.as_p }}
+		<br>
+	<input type="submit" value="Login" />
+</form>
+        </div>
+
+
+{% endblock %}
+
+
